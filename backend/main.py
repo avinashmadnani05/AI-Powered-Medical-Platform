@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routes import health, predict
+from routes import health, predict , chat
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
@@ -20,4 +20,4 @@ app.add_middleware(
 # Include routers
 app.include_router(health.router, prefix="/health", tags=["Health"])
 app.include_router(predict.router, prefix="/predict", tags=["Prediction"])
-
+app.include_router(chat.router, prefix="/api/chat", tags=["Chat & Voice"])
